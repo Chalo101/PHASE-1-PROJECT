@@ -25,7 +25,30 @@ document.addEventListener('DOMContentLoaded', function() {
                 .then(data => {
                     // Find the holiday data for the specified date
                     const holiday = data.find(holiday => holiday.date === `${year}-${month}-${day}`);
-                })    
+
+                    // If holiday data is found for the date
+                    if (holiday) {
+                        // Extract holiday details
+                        const holidayName = holiday.name;
+                        const holidayCountry = holiday.countryCode;
+                        const holidayIsGlobal = holiday.global;
+                        const localName = holiday.localName;
+                        
+                        // Check if the holiday is global and set the stringValue accordingly
+                        const stringValue = holidayIsGlobal ? 'yes' : 'no';
+                        
+                        // Display holiday information
+                        holidayInfoDiv.textContent = `The date ${date} is a public holiday called ${holidayName} in ${holidayCountry} and its local name is ${localName}. Is it global?  ${stringValue}`;
+                    } else {
+                        // Display message if no holiday data found for the date
+                        holidayInfoDiv.textContent = `The date ${date} is not a public holiday in ${countryCode}.`;
+                    }
+                })
+                .catch(error => {
+                    // Handle errors occurred during fetching data
+                    console.error(error);
+                    holidayInfoDiv.textContent = 'An error occurred while fetching the data.';
+                });   
         } else {
             // Display message if date or country code input is invalid
             holidayInfoDiv.textContent = 'Please enter a valid date in the format DD/MM/YYYY and a valid country code.';
