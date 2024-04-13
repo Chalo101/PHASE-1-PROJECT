@@ -18,6 +18,14 @@ document.addEventListener('DOMContentLoaded', function() {
         if (isValidDate(date) && countryCode) {
             // If valid, extract day, month, and year from the date
             const [day, month, year] = date.split('/');
+
+            // Fetch public holidays data for the specified year and country code
+            fetch(`https://date.nager.at/api/v3/PublicHolidays/${year}/${countryCode}`)
+                .then(response => response.json())
+                .then(data => {
+                    // Find the holiday data for the specified date
+                    const holiday = data.find(holiday => holiday.date === `${year}-${month}-${day}`);
+                })    
         } else {
             // Display message if date or country code input is invalid
             holidayInfoDiv.textContent = 'Please enter a valid date in the format DD/MM/YYYY and a valid country code.';
