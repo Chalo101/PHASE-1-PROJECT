@@ -4,5 +4,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Add click event listener to the "Check Holiday" button
     checkHolidayBtn.addEventListener('click', function() {
+
+        // Get references to the date input, country input, and holiday info div
+        const dateInput = document.getElementById('date');
+        const countryInput = document.getElementById('country');
+        const holidayInfoDiv = document.getElementById('holiday-info');
+        
     });
 });
