@@ -10,5 +10,10 @@ document.addEventListener('DOMContentLoaded', function() {
         const countryInput = document.getElementById('country');
         const holidayInfoDiv = document.getElementById('holiday-info');
         
+        // Get the trimmed values of date and country code inputs
+        const date = dateInput.value.trim();
+        const countryCode = countryInput.value.trim().toUpperCase();
+        
+        
     });
 });
