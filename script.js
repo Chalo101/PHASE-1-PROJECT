@@ -53,8 +53,8 @@ document.addEventListener('DOMContentLoaded', function() {
             // Display message if date or country code input is invalid
             holidayInfoDiv.textContent = 'Please enter a valid date in the format DD/MM/YYYY and a valid country code.';
         }
-    
-        
-        
+                    
     });
+
+
 });
