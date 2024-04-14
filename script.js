@@ -55,6 +55,10 @@ document.addEventListener('DOMContentLoaded', function() {
         }
                     
     });
-
+    // Function to validate date format
+    function isValidDate(dateString) {
+        const pattern = /^\d{2}\/\d{2}\/\d{4}$/;
+        return pattern.test(dateString);
+    }
 
 });
