@@ -23,12 +23,12 @@ document.addEventListener('DOMContentLoaded', function() {
             fetch(`https://date.nager.at/api/v3/PublicHolidays/${year}/${countryCode}`)
                 .then(response => response.json())
                 .then(data => {
-                    // Find the holiday data for the specified date
-                    const holiday = data.find(holiday => holiday.date === `${year}-${month}-${day}`);
+                // Find the holiday data for the specified date
+                const holiday = data.find(holiday => holiday.date === `${year}-${month}-${day}`);
 
-                    // If holiday data is found for the date
-                    if (holiday) {
-                        // Extract holiday details
+                // If holiday data is found for the date
+                if (holiday) {
+                     // Extract holiday details
                         const holidayName = holiday.name;
                         const holidayCountry = holiday.countryCode;
                         const holidayIsGlobal = holiday.global;
@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         
                         // Display holiday information
                         holidayInfoDiv.textContent = `The date ${date} is a public holiday called ${holidayName} in ${holidayCountry} and its local name is ${localName}. Is it global?  ${stringValue}`;
-                    } else {
+                } else {
                         // Display message if no holiday data found for the date
                         holidayInfoDiv.textContent = `The date ${date} is not a public holiday in ${countryCode}.`;
                     }
@@ -62,3 +62,4 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
 });
+
